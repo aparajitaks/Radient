@@ -1,0 +1,252 @@
+/* Design System & Base Tokens */
+:root {
+  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* ─── Tonal Ramps ─────────────────────────────────────────────── */
+  /* Navy / Blue-Gray */
+  --navy-50:  #EFF0F7;
+  --navy-100: #D2D5E7;
+  --navy-200: #A6ADD1;
+  --navy-300: #7B86BA;
+  --navy-400: #556296;
+  --navy-500: #384166;  /* base */
+  --navy-600: #1D2339;
+
+  /* Teal */
+  --teal-50:  #23F1CA;
+  --teal-100: #1BC5A5;
+  --teal-200: #139B81;
+  --teal-300: #0B735F;  /* base */
+  --teal-400: #054D3F;
+  --teal-500: #022A22;
+  --teal-600: #00140F;
+
+  /* Sage */
+  --sage-50:  #9AF1B5;
+  --sage-100: #7EC695;
+  --sage-200: #639D75;  /* base */
+  --sage-300: #497657;
+  --sage-400: #31513B;
+  --sage-500: #1A2E20;
+
+  /* Green (vivid CTA) */
+  --green-50:  #8CFF90;
+  --green-100: #0CDC2A;  /* base */
+  --green-200: #07B01F;
+  --green-300: #048615;
+  --green-400: #025E0C;
+  --green-500: #013904;
+
+  /* Tan / Warm */
+  --tan-50:  #E3DBA9;  /* base */
+  --tan-100: #BAB38A;
+  --tan-200: #938D6C;
+  --tan-300: #6D694F;
+  --tan-400: #4A4734;
+  --tan-500: #29271C;
+
+  /* Neutral Gray */
+  --gray-50:  #F0F1F1;
+  --gray-100: #D5D6D8;
+  --gray-200: #ADAEB3;
+  --gray-300: #87898F;
+  --gray-400: #63656A;
+  --gray-500: #424347;
+  --gray-600: #232426;
+
+  /* ─── Semantic Color Tokens ───────────────────────────────────── */
+  /* Primary action: Teal */
+  --color-primary:       #0B735F;
+  --color-primary-dark:  #054D3F;
+  --color-primary-light: #9AF1B5;
+
+  /* Secondary: Navy */
+  --color-secondary:     #384166;
+  --color-secondary-dark:#1D2339;
+
+  /* Accent / CTA: Vivid Green */
+  --color-accent:        #0CDC2A;
+  --color-accent-hover:  #07B01F;
+
+  /* Legacy alias kept for btn-gold references */
+  --color-accent-gold:       #0CDC2A;
+  --color-accent-gold-hover: #07B01F;
+
+  /* Dark header/nav/footer base */
+  --color-dark-navy:     #384166;
+
+  /* Text */
+  --color-text-main:     #232426;
+  --color-text-muted:    #63656A;
+  --color-text-inverse:  #F0F1F1;
+
+  /* Backgrounds */
+  --color-bg-page:    #F0F1F1;
+  --color-bg-white:   #FFFFFF;
+  --color-bg-alt:     #EFF0F7;
+  --color-warm-bg:    #E3DBA9;
+
+  /* Borders */
+  --color-border:        #D5D6D8;
+  --color-border-strong: #ADAEB3;
+
+  /* Banner (announcement bar) */
+  --color-banner:        #384166;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 14px 28px rgba(0, 0, 0, 0.16);
+
+  /* Spacing */
+  --container-max-width: 1240px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-page);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Common Section Title */
+.section-title-wrap {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--color-dark-navy);
+  letter-spacing: -0.5px;
+}
+
+.section-title span {
+  color: var(--color-primary);
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Badges & Buttons */
+.btn-primary {
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(11, 115, 95, 0.3);
+  transition: var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(11, 115, 95, 0.4);
+}
+
+.btn-gold {
+  background: var(--color-accent-gold);
+  color: #0f2a1e;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  box-shadow: 0 2px 6px rgba(13, 176, 31, 0.3);
+}
+
+.btn-gold:hover {
+  background: var(--color-accent-gold-hover);
+  transform: translateY(-1px);
+}
+
+.btn-view-all {
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin: 30px auto 0;
+  box-shadow: 0 4px 12px rgba(11, 115, 95, 0.35);
+  transition: var(--transition-fast);
+}
+
+.btn-view-all:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
