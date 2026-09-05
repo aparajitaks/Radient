@@ -11,10 +11,16 @@ export default function PackageCard({ pkg, onSelectPackage }) {
           loading="lazy"
         />
         <span className="duration-pill">{pkg.duration}</span>
+        {pkg.badge && <span className="card-badge-tag">{pkg.badge}</span>}
       </div>
 
       <div className="card-content">
         <h3 className="card-title">{pkg.title}</h3>
+        {pkg.route && (
+          <div className="card-route-text" title={pkg.route}>
+            📍 {pkg.route}
+          </div>
+        )}
 
         <div className="card-footer-row">
           <div className="card-price-label">

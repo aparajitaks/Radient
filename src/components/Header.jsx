@@ -1,33 +1,75 @@
-import React, { useState } from 'react';
-import { Menu, X, PhoneCall, Send } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Menu, X, PhoneCall, Send, ChevronDown } from 'lucide-react';
 import { contactInfo } from '../data/packagesData';
 
-export default function Header({ onOpenEnquiry }) {
+export default function Header({ onOpenEnquiry, onSelectPackageTab }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [packagesDropdownOpen, setPackagesDropdownOpen] = useState(false);
+  const [drawerPackagesOpen, setDrawerPackagesOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-  const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Shirdi Tours', href: '#shirdi-packages' },
-    { label: 'Kashi Tours', href: '#kashi-packages' },
-    { label: 'Special Tours', href: '#special-packages' },
-    { label: 'Reviews', href: '#reviews' },
-    { label: 'Destinations', href: '#destinations' },
-    { label: 'Gallery', href: '#gallery' },
-    { label: 'Contact', href: '#footer' }
+  const packageOptions = [
+    {
+      title: 'South Indian Packages',
+      desc: 'Kerala, Tirupati, Ooty, Coorg & Coastal Temples',
+      href: '#packages',
+      tabId: 'south'
+    },
+    {
+      title: 'North India Package',
+      desc: 'Kashmir, Himachal, Delhi-Agra-Jaipur & Rajasthan',
+      href: '#packages',
+      tabId: 'north'
+    },
+    {
+      title: 'Pilgrimage',
+      desc: 'Shirdi Sai Baba, Kashi Ayodhya, Chardham & Jyotirlingas',
+      href: '#packages',
+      tabId: 'pilgrimage'
+    },
+    {
+      title: 'International',
+      desc: 'Bhutan, Nepal, Dubai, Bali & Sri Lanka',
+      href: '#packages',
+      tabId: 'international'
+    }
   ];
+
+  // Close desktop dropdown on click outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setPackagesDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleNavClick = (href, tabId) => {
+    setMobileMenuOpen(false);
+    setPackagesDropdownOpen(false);
+    if (tabId && onSelectPackageTab) {
+      onSelectPackageTab(tabId);
+    }
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="main-header">
       <div className="container header-container">
         {/* Brand Logo */}
-        <a href="#home" className="brand-logo">
+        <a href="#home" className="brand-logo" onClick={() => handleNavClick('#home')}>
           <img
             src="/logo.png"
             alt="Radiant Expeditions Tours &amp; Travels logo"
             className="logo-img"
           />
           <div>
-            <div className="brand-name">Radient Expeditions</div>
+            <div className="brand-name">Radiant Expeditions</div>
             <div className="brand-tagline">Tours & Travels – Bangalore</div>
           </div>
         </a>
@@ -35,13 +77,61 @@ export default function Header({ onOpenEnquiry }) {
         {/* Desktop Navigation */}
         <nav>
           <ul className="nav-menu">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <a href={link.href} className="nav-link">
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {/* 1. Home */}
+            <li>
+              <a href="#home" className="nav-link" onClick={() => handleNavClick('#home')}>
+                Home
+              </a>
+            </li>
+
+            {/* 2. About Us */}
+            <li>
+              <a href="#about-us" className="nav-link" onClick={() => handleNavClick('#about-us')}>
+                About Us
+              </a>
+            </li>
+
+            {/* 3. Packages with Dropdown */}
+            <li
+              className="nav-item-dropdown"
+              ref={dropdownRef}
+              onMouseEnter={() => setPackagesDropdownOpen(true)}
+              onMouseLeave={() => setPackagesDropdownOpen(false)}
+            >
+              <button
+                type="button"
+                className={`nav-dropdown-toggle ${packagesDropdownOpen ? 'open' : ''}`}
+                onClick={() => setPackagesDropdownOpen(!packagesDropdownOpen)}
+                aria-expanded={packagesDropdownOpen}
+              >
+                Packages
+                <ChevronDown size={15} className="dropdown-arrow" />
+              </button>
+
+              <div className={`nav-dropdown-menu ${packagesDropdownOpen ? 'show' : ''}`}>
+                {packageOptions.map((pkg) => (
+                  <div key={pkg.title} className="nav-dropdown-item">
+                    <a
+                      href={pkg.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(pkg.href, pkg.tabId);
+                      }}
+                    >
+                      <span>{pkg.title}</span>
+                      <span className="dropdown-subtext">{pkg.desc}</span>
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </li>
+
+            {/* 4. Contact Us */}
+            <li>
+              <a href="#footer" className="nav-link" onClick={() => handleNavClick('#footer')}>
+                Contact Us
+              </a>
+            </li>
           </ul>
         </nav>
 
@@ -81,7 +171,7 @@ export default function Header({ onOpenEnquiry }) {
               style={{ width: '40px', height: '40px' }}
             />
             <div>
-              <div className="brand-name" style={{ fontSize: '18px' }}>Radient Expeditions</div>
+              <div className="brand-name" style={{ fontSize: '18px' }}>Radiant Expeditions</div>
             </div>
           </div>
           <button 
@@ -94,16 +184,81 @@ export default function Header({ onOpenEnquiry }) {
         </div>
 
         <ul className="drawer-links">
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <a 
-                href={link.href} 
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {/* Home */}
+          <li>
+            <a
+              href="#home"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('#home');
+              }}
+            >
+              Home
+            </a>
+          </li>
+
+          {/* About Us */}
+          <li>
+            <a
+              href="#about-us"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('#about-us');
+              }}
+            >
+              About Us
+            </a>
+          </li>
+
+          {/* Packages Dropdown Accordion */}
+          <li>
+            <button
+              type="button"
+              className="drawer-dropdown-btn"
+              onClick={() => setDrawerPackagesOpen(!drawerPackagesOpen)}
+            >
+              <span>Packages</span>
+              <ChevronDown
+                size={18}
+                style={{
+                  transform: drawerPackagesOpen ? 'rotate(180deg)' : 'none',
+                  transition: 'transform 0.2s ease'
+                }}
+              />
+            </button>
+            {drawerPackagesOpen && (
+              <div className="drawer-submenu">
+                {packageOptions.map((pkg) => (
+                  <a
+                    key={pkg.title}
+                    href={pkg.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(pkg.href, pkg.tabId);
+                    }}
+                  >
+                    <strong>{pkg.title}</strong>
+                    <div style={{ fontSize: '12px', color: '#64748b', marginTop: '2px' }}>
+                      {pkg.desc}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            )}
+          </li>
+
+          {/* Contact Us */}
+          <li>
+            <a
+              href="#footer"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('#footer');
+              }}
+            >
+              Contact Us
+            </a>
+          </li>
         </ul>
 
         <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>

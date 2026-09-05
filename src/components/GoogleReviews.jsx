@@ -11,7 +11,7 @@ export default function GoogleReviews({ onOpenEnquiry }) {
             Client <span>Reviews & Ratings</span>
           </h2>
           <p className="section-subtitle">
-            Read genuine experiences from families and devotees who traveled with Radient Expeditions.
+            Read genuine experiences from families and devotees who traveled with Radiant Expeditions.
           </p>
         </div>
 
@@ -30,7 +30,7 @@ export default function GoogleReviews({ onOpenEnquiry }) {
                     <Star key={i} size={18} fill="#f59e0b" color="#f59e0b" />
                   ))}
                 </div>
-                <div className="review-count-text">Based on {contactInfo.googleReviewsCount} Reviews</div>
+                <div className="review-count-text">Based on {contactInfo.googleReviewsCount} Google Reviews</div>
               </div>
             </div>
 
@@ -63,15 +63,15 @@ export default function GoogleReviews({ onOpenEnquiry }) {
               </svg>
             </div>
 
-            <div className="qr-instruction">SCAN QR CODE & SEE OUR PROFILE</div>
+            <div className="qr-instruction">SCAN QR CODE &amp; SEE OUR PROFILE</div>
 
             <a 
-              href="https://www.google.com/search?q=sri+sai+subhayatra+bangalore+reviews" 
+              href="https://share.google/sKJGscBnoFqiLYYus" 
               target="_blank" 
               rel="noreferrer" 
               className="google-profile-btn"
             >
-              Click Here to View Our Profile
+              View on Google Maps ↗
             </a>
           </div>
 

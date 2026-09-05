@@ -25,12 +25,27 @@ export default function EnquiryModal({ isOpen, onClose, initialPackage = '' }) {
     "Customized Pilgrimage Package"
   ];
 
+  const getWhatsAppUrl = () => {
+    const text = `*New Tour Enquiry - Radiant Expeditions*\n\n` +
+      `👤 *Name:* ${formData.name}\n` +
+      `📞 *Phone:* ${formData.phone}\n` +
+      (formData.email ? `✉️ *Email:* ${formData.email}\n` : '') +
+      `📍 *Package:* ${formData.packageInterest}\n` +
+      `👥 *Travelers:* ${formData.persons} Person(s)\n` +
+      (formData.travelDate ? `📅 *Travel Date:* ${formData.travelDate}\n` : '') +
+      (formData.message ? `📝 *Requirements:* ${formData.message}\n` : '');
+    return `https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent(text)}`;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) {
       alert('Please fill in your name and phone number.');
       return;
     }
+    // Open WhatsApp with all filled details directly to 090199 85906
+    const waUrl = getWhatsAppUrl();
+    window.open(waUrl, '_blank');
     setIsSubmitted(true);
   };
 
@@ -48,16 +63,16 @@ export default function EnquiryModal({ isOpen, onClose, initialPackage = '' }) {
               Enquiry Received Successfully!
             </h2>
             <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.6', marginBottom: '24px' }}>
-              Thank you <strong>{formData.name}</strong>! Our pilgrimage expert has received your enquiry for <strong>{formData.packageInterest}</strong>. We will call you back on <strong>{formData.phone}</strong> within 15 minutes.
+              Thank you <strong>{formData.name}</strong>! Your enquiry for <strong>{formData.packageInterest}</strong> has been prepared. Our pilgrimage experts will connect with you on <strong>{formData.phone}</strong> shortly.
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
               <a 
-                href={`https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent(`Hi Radient Expeditions, I submitted an enquiry for ${formData.packageInterest}. My name is ${formData.name}.`)}`}
+                href={getWhatsAppUrl()}
                 target="_blank" 
                 rel="noreferrer"
                 className="btn-primary"
               >
-                Chat on WhatsApp
+                Open in WhatsApp
               </a>
               <button className="btn-gold" onClick={onClose}>
                 Close

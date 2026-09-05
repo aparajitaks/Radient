@@ -5,7 +5,9 @@ export default function PackageSection({
   id,
   titleFirst,
   titleHighlight,
-  packages,
+  badgeText,
+  subtitle,
+  packages = [],
   onSelectPackage,
   isAltBg = false,
   initialCount = 6
@@ -18,9 +20,11 @@ export default function PackageSection({
     <section id={id} className={`package-section ${isAltBg ? 'alt-bg' : ''}`}>
       <div className="container">
         <div className="section-title-wrap">
+          {badgeText && <span className="section-badge-tag">{badgeText}</span>}
           <h2 className="section-title">
             {titleFirst} <span>{titleHighlight}</span>
           </h2>
+          {subtitle && <p className="section-subtitle">{subtitle}</p>}
         </div>
 
         <div className="package-grid">

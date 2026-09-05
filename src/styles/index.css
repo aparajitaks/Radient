@@ -30,13 +30,23 @@
   --sage-400: #31513B;
   --sage-500: #1A2E20;
 
-  /* Green (vivid CTA) */
-  --green-50:  #8CFF90;
-  --green-100: #0CDC2A;  /* base */
-  --green-200: #07B01F;
-  --green-300: #048615;
-  --green-400: #025E0C;
-  --green-500: #013904;
+  /* Orange (vivid CTA - matching Radiant brand) */
+  --orange-50:  #FFF7ED;
+  --orange-100: #FFEDD5;
+  --orange-200: #FED7AA;
+  --orange-300: #FDBA74;
+  --orange-400: #FB923C;
+  --orange-500: #F39816;  /* base - exact shade from brand */
+  --orange-600: #E0850D;  /* hover */
+  --orange-700: #C2410C;
+
+  /* Backward-compatible green alias mapping to orange */
+  --green-50:  #FFF7ED;
+  --green-100: #F39816;
+  --green-200: #E0850D;
+  --green-300: #C2410C;
+  --green-400: #9A3412;
+  --green-500: #7C2D12;
 
   /* Tan / Warm */
   --tan-50:  #E3DBA9;  /* base */
@@ -65,13 +75,13 @@
   --color-secondary:     #384166;
   --color-secondary-dark:#1D2339;
 
-  /* Accent / CTA: Vivid Green */
-  --color-accent:        #0CDC2A;
-  --color-accent-hover:  #07B01F;
+  /* Accent / CTA: Radiant Orange (replacing vivid green) */
+  --color-accent:        #F39816;
+  --color-accent-hover:  #E0850D;
 
   /* Legacy alias kept for btn-gold references */
-  --color-accent-gold:       #0CDC2A;
-  --color-accent-gold-hover: #07B01F;
+  --color-accent-gold:       #F39816;
+  --color-accent-gold-hover: #E0850D;
 
   /* Dark header/nav/footer base */
   --color-dark-navy:     #384166;
@@ -215,8 +225,8 @@ img {
 }
 
 .btn-gold {
-  background: var(--color-accent-gold);
-  color: #0f2a1e;
+  background: linear-gradient(135deg, #F39816 0%, #FA8C16 100%);
+  color: #ffffff;
   padding: 8px 18px;
   border-radius: var(--radius-sm);
   font-weight: 700;
@@ -225,12 +235,16 @@ img {
   align-items: center;
   justify-content: center;
   transition: var(--transition-fast);
-  box-shadow: 0 2px 6px rgba(13, 176, 31, 0.3);
+  box-shadow: 0 3px 10px rgba(243, 152, 22, 0.35);
+  border: none;
+  cursor: pointer;
 }
 
 .btn-gold:hover {
-  background: var(--color-accent-gold-hover);
+  background: linear-gradient(135deg, #E0850D 0%, #EA7A04 100%);
+  color: #ffffff;
   transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(243, 152, 22, 0.45);
 }
 
 .btn-view-all {

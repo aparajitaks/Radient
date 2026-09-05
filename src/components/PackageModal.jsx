@@ -17,12 +17,28 @@ export default function PackageModal({ pkg, onClose, onBookNow }) {
 
   const totalPrice = pkg.price * passengers;
 
+  const getPackageWhatsAppUrl = () => {
+    const text = `*Booking Request - Radiant Expeditions*\n\n` +
+      `📍 *Package:* ${pkg.title}\n` +
+      `👤 *Name:* ${formData.name}\n` +
+      `📞 *Phone:* ${formData.phone}\n` +
+      (formData.email ? `✉️ *Email:* ${formData.email}\n` : '') +
+      `👥 *Passengers:* ${passengers}\n` +
+      (selectedDate ? `📅 *Preferred Date:* ${selectedDate}\n` : '') +
+      `💰 *Estimated Total:* Rs.${totalPrice.toLocaleString('en-IN')}/-\n` +
+      (formData.notes ? `📝 *Notes:* ${formData.notes}\n` : '');
+    return `https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent(text)}`;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) {
       alert('Please fill in your name and contact phone number.');
       return;
     }
+    // Automatically open WhatsApp with the complete booking details sent to 090199 85906
+    const waUrl = getPackageWhatsAppUrl();
+    window.open(waUrl, '_blank');
     setSubmitted(true);
   };
 
@@ -65,7 +81,7 @@ export default function PackageModal({ pkg, onClose, onBookNow }) {
               ✨ Tour Highlights
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {pkg.highlights.map((h, i) => (
+              {(pkg.highlights || []).map((h, i) => (
                 <li key={i} style={{ fontSize: '13.5px', color: '#334155', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <CheckCircle2 size={16} color="var(--color-primary)" />
                   {h}
@@ -81,7 +97,7 @@ export default function PackageModal({ pkg, onClose, onBookNow }) {
             📅 Detailed Day-Wise Itinerary
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {pkg.itinerary.map((item, index) => (
+            {(pkg.itinerary || []).map((item, index) => (
               <div
                 key={index}
                 style={{
@@ -109,7 +125,7 @@ export default function PackageModal({ pkg, onClose, onBookNow }) {
               ✓ Inclusions
             </h4>
             <ul style={{ listStyle: 'none', fontSize: '13px', color: '#14532d', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              {pkg.inclusions.map((inc, i) => (
+              {(pkg.inclusions || []).map((inc, i) => (
                 <li key={i}>• {inc}</li>
               ))}
             </ul>
@@ -120,7 +136,7 @@ export default function PackageModal({ pkg, onClose, onBookNow }) {
               ✕ Exclusions
             </h4>
             <ul style={{ listStyle: 'none', fontSize: '13px', color: '#7f1d1d', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              {pkg.exclusions.map((exc, i) => (
+              {(pkg.exclusions || []).map((exc, i) => (
                 <li key={i}>• {exc}</li>
               ))}
             </ul>
@@ -140,13 +156,22 @@ export default function PackageModal({ pkg, onClose, onBookNow }) {
               <p style={{ color: '#047857', fontSize: '14px' }}>
                 Thank you <strong>{formData.name}</strong>! Our tour executive will contact you shortly on <strong>{formData.phone}</strong> with your customized itinerary and flight tickets.
               </p>
-              <button
-                className="btn-gold"
-                style={{ marginTop: '16px' }}
-                onClick={onClose}
-              >
-                Close Window
-              </button>
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '16px' }}>
+                <a
+                  href={getPackageWhatsAppUrl()}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-primary"
+                >
+                  Open in WhatsApp
+                </a>
+                <button
+                  className="btn-gold"
+                  onClick={onClose}
+                >
+                  Close Window
+                </button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
@@ -216,7 +241,7 @@ export default function PackageModal({ pkg, onClose, onBookNow }) {
                   <Send size={16} /> Submit Booking Request
                 </button>
                 <a
-                  href={`https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent(`Hi Radient Expeditions, I am interested in ${pkg.title} for ${passengers} persons.`)}`}
+                  href={`https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent(`Hi Radiant Expeditions, I am interested in ${pkg.title} for ${passengers} persons.`)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-gold"

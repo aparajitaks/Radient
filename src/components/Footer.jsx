@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Clock, Heart, ShieldCheck, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { contactInfo } from '../data/packagesData';
 
 const InstagramIcon = ({ size = 16 }) => (
@@ -18,7 +18,7 @@ const YoutubeIcon = ({ size = 16 }) => (
 );
 
 
-export default function Footer({ onOpenEnquiry }) {
+export default function Footer({ onOpenEnquiry, onSelectPackageTab }) {
   return (
     <footer id="footer" className="main-footer">
       <div className="container">
@@ -33,7 +33,7 @@ export default function Footer({ onOpenEnquiry }) {
                 style={{ width: '56px', height: '56px', filter: 'brightness(1.05)' }}
               />
               <div>
-                <div className="brand-name" style={{ color: '#ffffff' }}>Radient Expeditions</div>
+                <div className="brand-name" style={{ color: '#ffffff' }}>Radiant Expeditions</div>
                 <div className="brand-tagline">Tours & Travels</div>
               </div>
             </div>
@@ -52,12 +52,12 @@ export default function Footer({ onOpenEnquiry }) {
             {/* Social Media Links */}
             <div className="footer-social-row">
               <a
-                href="https://share.google/SyTVK9ImgMPvcO0un"
+                href="https://share.google/sKJGscBnoFqiLYYus"
                 target="_blank"
                 rel="noreferrer"
                 className="footer-social-btn footer-social-google"
                 aria-label="Google Reviews"
-                title="See our Google Reviews"
+                title="See our Google Reviews (4.8 ★)"
               >
                 <Star size={16} />
               </a>
@@ -89,63 +89,66 @@ export default function Footer({ onOpenEnquiry }) {
             <h3>Quick Links</h3>
             <ul className="footer-links-list">
               <li><a href="#home">Home</a></li>
-              <li><a href="#shirdi-packages">Shirdi Tour Packages</a></li>
-              <li><a href="#kashi-packages">Kashi & Ayodhya Tours</a></li>
-              <li><a href="#special-packages">Special Tour Packages</a></li>
-              <li><a href="#destinations">Holy Destinations</a></li>
-              <li><a href="#reviews">Google Reviews (4.8 ★)</a></li>
-              <li><a href="#gallery">Photo Gallery</a></li>
+              <li><a href="#about-us">About Us</a></li>
+              <li>
+                <a
+                  href="#packages"
+                  onClick={() => onSelectPackageTab && onSelectPackageTab('south')}
+                >
+                  South Indian Packages
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#packages"
+                  onClick={() => onSelectPackageTab && onSelectPackageTab('north')}
+                >
+                  North India Package
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#packages"
+                  onClick={() => onSelectPackageTab && onSelectPackageTab('pilgrimage')}
+                >
+                  Pilgrimage
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#packages"
+                  onClick={() => onSelectPackageTab && onSelectPackageTab('international')}
+                >
+                  International
+                </a>
+              </li>
+              <li><a href="#footer">Contact Us</a></li>
             </ul>
           </div>
 
-          {/* Col 3: Popular Tours */}
+          {/* Col 3: Google Map Location */}
           <div className="footer-col">
-            <h3>Popular Yatras</h3>
-            <ul className="footer-links-list">
-              <li><a href="#shirdi-packages" onClick={() => onOpenEnquiry("One Day Shirdi Tour")}>One Day Shirdi Flight Tour</a></li>
-              <li><a href="#shirdi-packages" onClick={() => onOpenEnquiry("Shirdi 2 Days Tour")}>Shirdi 2 Days VIP Darshan</a></li>
-              <li><a href="#kashi-packages" onClick={() => onOpenEnquiry("Kashi & Ayodhya Tour")}>Kashi & Ayodhya 3 Days Tour</a></li>
-              <li><a href="#kashi-packages" onClick={() => onOpenEnquiry("Kashi, Gaya, Ayodhya")}>Kashi Gaya Ayodhya (6 Days)</a></li>
-              <li><a href="#special-packages" onClick={() => onOpenEnquiry("Puri Jagannath Tour")}>Puri Jagannath Tour</a></li>
-              <li><a href="#special-packages" onClick={() => onOpenEnquiry("Gujarat Dwarka Tour")}>Gujarat Dwarka & Somnath</a></li>
-            </ul>
-          </div>
-
-          {/* Col 4: Contact & Office */}
-          <div className="footer-col">
-            <h3>Bangalore Office</h3>
-            <div className="footer-contact-item">
-              <Phone size={18} />
-              <div>
-                <strong>Booking Helpline:</strong>
-                <div>{contactInfo.phone1.name}: <a href={`tel:${contactInfo.phone1.tel}`} style={{ color: 'var(--color-accent)' }}>{contactInfo.phone1.number}</a></div>
-                <div>{contactInfo.phone2.name}: <a href={`tel:${contactInfo.phone2.tel}`} style={{ color: 'var(--color-accent)' }}>{contactInfo.phone2.number}</a></div>
-                <div>{contactInfo.phone3.name}: <a href={`tel:${contactInfo.phone3.tel}`} style={{ color: 'var(--color-accent)' }}>{contactInfo.phone3.number}</a></div>
-              </div>
-            </div>
-
-            <div className="footer-contact-item">
-              <Mail size={18} />
-              <div>
-                <strong>Email:</strong>
-                <div><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></div>
-              </div>
-            </div>
-
-            <div className="footer-contact-item">
-              <MapPin size={18} />
-              <div>
-                <strong>Location:</strong>
-                <div>{contactInfo.address}</div>
-              </div>
-            </div>
-
-            <div className="footer-contact-item">
-              <Clock size={18} />
-              <div>
-                <strong>Timings:</strong>
-                <div>Mon – Sun: 8:00 AM – 9:30 PM</div>
-              </div>
+            <h3>Our Location</h3>
+            <div className="footer-map-container">
+              <a
+                href="https://share.google/sKJGscBnoFqiLYYus"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-map-card"
+                title="Click to view Radiant Airtickets and Expeditions on Google Maps"
+              >
+                <img
+                  src="/images/google_map_location.png"
+                  alt="Radiant Airtickets and Expeditions Google Maps Location"
+                  className="footer-map-img"
+                />
+                <div className="footer-map-overlay">
+                  <span style={{ fontSize: '13px', fontWeight: '600' }}>Arehalli, AGS Layout, Bangalore</span>
+                  <span className="footer-map-btn">
+                    Open in Maps ↗
+                  </span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -153,17 +156,17 @@ export default function Footer({ onOpenEnquiry }) {
         {/* Footer Bottom Bar */}
         <div className="footer-bottom-bar">
           <div>
-            © {new Date().getFullYear()} Radient Expeditions. All Rights Reserved.
+            © {new Date().getFullYear()} Radiant Expeditions. All Rights Reserved.
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <a
-              href="https://share.google/SyTVK9ImgMPvcO0un"
+              href="https://share.google/sKJGscBnoFqiLYYus"
               target="_blank"
               rel="noreferrer"
               className="footer-bottom-social"
               aria-label="Google Reviews"
             >
-              <Star size={14} /> Google Reviews
+              <Star size={14} /> Google Reviews (4.8 ★)
             </a>
             <span>•</span>
             <a

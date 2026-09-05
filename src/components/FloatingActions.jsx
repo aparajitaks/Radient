@@ -57,7 +57,7 @@ export default function FloatingActions({ onOpenEnquiry }) {
 
       {/* Floating WhatsApp Button */}
       <a
-        href={`https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent('Hello Radient Expeditions, I would like to inquire about pilgrimage tour packages from Bangalore.')}`}
+        href={`https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent('Hello Radiant Expeditions, I would like to inquire about pilgrimage tour packages from Bangalore.')}`}
         target="_blank"
         rel="noreferrer"
         className="floating-whatsapp"

@@ -50,7 +50,7 @@ export default function HeroSlider({ onOpenEnquiry, onSelectPackage }) {
                   <Send size={18} /> Book This Tour
                 </button>
                 <a
-                  href="#shirdi-packages"
+                  href="#packages"
                   className="btn-gold"
                   style={{ padding: '14px 28px', fontSize: '16px' }}
                 >
