@@ -18,7 +18,6 @@ export default function EnquiryModal({ isOpen, onClose, initialPackage = '' }) {
   if (!isOpen) return null;
 
   const allPackageTitles = [
-    "Special Discount Offer (Infant/Kids Free)",
     ...shirdiPackages.map(p => p.title),
     ...kashiPackages.map(p => p.title),
     ...specialPackages.map(p => p.title),

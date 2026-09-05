@@ -459,6 +459,57 @@ export const northIndianPackages = [
       "All toll, parking and driver allowances"
     ],
     exclusions: ["Airfare", "Personal donations & offerings"]
+  },
+  {
+    id: "northeast-india-12days",
+    title: "North East India Unveiled: A 12-Day Adventure",
+    duration: "11 Nights, 12 Days",
+    route: "Guwahati, Shillong, Dawki, Mawlynnong, Cherrapunjee, Kaziranga, Bomdila, Tawang, Dirang Valley",
+    price: 74999,
+    priceDisplay: "Rs.74,999/-",
+    category: "north-india",
+    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&auto=format&fit=crop&q=80",
+    badge: "Three Sisters Grand Tour",
+    description:
+      "North East India Unveiled: 12-Day Tour of Assam, Meghalaya & Arunachal. Explore the mystical lands, ancient temples, lush landscapes, and diverse wildlife of Guwahati, Shillong, Cherrapunjee, Kaziranga, Bomdila, and Tawang.",
+    highlights: [
+      "Kamakhya Devi Temple sacred Shakti Peetha darshan in Guwahati",
+      "Shillong 'Scotland of the East', Umium Lake & Don Bosco Museum",
+      "Dawki crystal-clear Umngot River & Mawlynnong (Asia's Cleanest Village)",
+      "Cherrapunjee Nohkalikai Falls, Seven Sisters Falls & Mawsmai Caves",
+      "Kaziranga National Park Elephant & Jeep Safaris (One-Horned Rhinos)",
+      "Sela Pass (13,700 ft), Jaswantgarh & Iconic Tawang Buddhist Monastery",
+      "Dirang Valley Kiwi Garden & Jung Water Fall"
+    ],
+    itinerary: [
+      { day: "Day 1", desc: "Arrive in Guwahati, visit the sacred Kamakhya Temple, and check into your hotel for the night." },
+      { day: "Day 2", desc: "Travel to Shillong, explore Umium Lake, Don Bosco Museum, and Wards Lake, enjoying the scenic beauty." },
+      { day: "Day 3", desc: "Visit the crystal-clear Umngot River in Dawki and explore Mawlynnong, Asia's Cleanest Village, with its Living Root Bridge." },
+      { day: "Day 4", desc: "Full-day excursion to Cherrapunjee, witnessing Nohkalikai Falls, Seven Sisters Falls, Mawsmai Caves, Elephant Falls, and Shillong View Point." },
+      { day: "Day 5", desc: "Travel to Kaziranga National Park, a UNESCO World Heritage Site, and settle into your hotel." },
+      { day: "Day 6", desc: "Experience early morning Elephant Safari and an afternoon Jeep Safari for wildlife viewing in Kaziranga National Park." },
+      { day: "Day 7", desc: "Drive to Bomdila, visiting Tipi Orchidarium and Nag Mandir en route." },
+      { day: "Day 8", desc: "Journey to Tawang, crossing Sela Pass, admiring Paradise Lake, and paying homage at Jaswantgarh." },
+      { day: "Day 9", desc: "Explore Penga Ten TSO Lake, War Memorial, and the iconic Tawang Monastery, experiencing Tawang's spiritual and natural beauty." },
+      { day: "Day 10", desc: "Drive back to Bomdila, stopping at Jung Water Fall and Kiwi Garden in Dirang Valley." },
+      { day: "Day 11", desc: "Drive back to Guwahati, with an evening at leisure for relaxation or last-minute souvenir shopping." },
+      { day: "Day 12", desc: "Enjoy breakfast before transferring to Guwahati Airport for your onward journey, concluding the North East adventure." }
+    ],
+    inclusions: [
+      "Two-way flights from Bangalore to Guwahati & Guwahati to Bangalore",
+      "Comfortable AC 12 Seater Urbania or 22 Seater AC Coach for ground transfers",
+      "South Indian - Breakfast, Lunch, Dinner & Tea, Filter Coffee",
+      "03 liters of mineral water per person per day",
+      "Twin sharing basis AC Deluxe Rooms for all overnight stays"
+    ],
+    exclusions: [
+      "SUV Jeep/Elephant Safari & Jungle Safaris in Kaziranga (chargeable directly)",
+      "Entrance Fees/VIP PASS for Kamakhya Devi, monasteries, waterfalls, hanging bridges, etc.",
+      "Auto/Vans/Jeep/Boat rides where coaches cannot reach (cost to be borne by guests)",
+      "Temple entrance fees/VIP Darshan/Pooja rituals ceremonies",
+      "06 Sharing Innova vehicle for Bumla Pass from Tawang",
+      "Insurance and laundry"
+    ]
   }
 ];
 
@@ -728,56 +779,6 @@ export const internationalPackages = [
     exclusions: [
       "Personal expenses (laundry, phone calls, room service, mineral water)",
       "Travel insurance"
-    ]
-  },
-  {
-    id: "northeast-india-12days",
-    title: "North East India Unveiled: A 12-Day Adventure",
-    duration: "11 Nights, 12 Days",
-    route: "Guwahati, Shillong, Dawki, Mawlynnong, Cherrapunjee, Kaziranga, Bomdila, Tawang, Dirang Valley",
-    price: 74999,
-    priceDisplay: "Rs.74,999/-",
-    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&auto=format&fit=crop&q=80",
-    badge: "Three Sisters Grand Tour",
-    description:
-      "North East India Unveiled: 12-Day Tour of Assam, Meghalaya & Arunachal. Explore the mystical lands, ancient temples, lush landscapes, and diverse wildlife of Guwahati, Shillong, Cherrapunjee, Kaziranga, Bomdila, and Tawang.",
-    highlights: [
-      "Kamakhya Devi Temple sacred Shakti Peetha darshan in Guwahati",
-      "Shillong 'Scotland of the East', Umium Lake & Don Bosco Museum",
-      "Dawki crystal-clear Umngot River & Mawlynnong (Asia's Cleanest Village)",
-      "Cherrapunjee Nohkalikai Falls, Seven Sisters Falls & Mawsmai Caves",
-      "Kaziranga National Park Elephant & Jeep Safaris (One-Horned Rhinos)",
-      "Sela Pass (13,700 ft), Jaswantgarh & Iconic Tawang Buddhist Monastery",
-      "Dirang Valley Kiwi Garden & Jung Water Fall"
-    ],
-    itinerary: [
-      { day: "Day 1", desc: "Arrive in Guwahati, visit the sacred Kamakhya Temple, and check into your hotel for the night." },
-      { day: "Day 2", desc: "Travel to Shillong, explore Umium Lake, Don Bosco Museum, and Wards Lake, enjoying the scenic beauty." },
-      { day: "Day 3", desc: "Visit the crystal-clear Umngot River in Dawki and explore Mawlynnong, Asia's Cleanest Village, with its Living Root Bridge." },
-      { day: "Day 4", desc: "Full-day excursion to Cherrapunjee, witnessing Nohkalikai Falls, Seven Sisters Falls, Mawsmai Caves, Elephant Falls, and Shillong View Point." },
-      { day: "Day 5", desc: "Travel to Kaziranga National Park, a UNESCO World Heritage Site, and settle into your hotel." },
-      { day: "Day 6", desc: "Experience early morning Elephant Safari and an afternoon Jeep Safari for wildlife viewing in Kaziranga National Park." },
-      { day: "Day 7", desc: "Drive to Bomdila, visiting Tipi Orchidarium and Nag Mandir en route." },
-      { day: "Day 8", desc: "Journey to Tawang, crossing Sela Pass, admiring Paradise Lake, and paying homage at Jaswantgarh." },
-      { day: "Day 9", desc: "Explore Penga Ten TSO Lake, War Memorial, and the iconic Tawang Monastery, experiencing Tawang's spiritual and natural beauty." },
-      { day: "Day 10", desc: "Drive back to Bomdila, stopping at Jung Water Fall and Kiwi Garden in Dirang Valley." },
-      { day: "Day 11", desc: "Drive back to Guwahati, with an evening at leisure for relaxation or last-minute souvenir shopping." },
-      { day: "Day 12", desc: "Enjoy breakfast before transferring to Guwahati Airport for your onward journey, concluding the North East adventure." }
-    ],
-    inclusions: [
-      "Two-way flights from Bangalore to Guwahati & Guwahati to Bangalore",
-      "Comfortable AC 12 Seater Urbania or 22 Seater AC Coach for ground transfers",
-      "South Indian - Breakfast, Lunch, Dinner & Tea, Filter Coffee",
-      "03 liters of mineral water per person per day",
-      "Twin sharing basis AC Deluxe Rooms for all overnight stays"
-    ],
-    exclusions: [
-      "SUV Jeep/Elephant Safari & Jungle Safaris in Kaziranga (chargeable directly)",
-      "Entrance Fees/VIP PASS for Kamakhya Devi, monasteries, waterfalls, hanging bridges, etc.",
-      "Auto/Vans/Jeep/Boat rides where coaches cannot reach (cost to be borne by guests)",
-      "Temple entrance fees/VIP Darshan/Pooja rituals ceremonies",
-      "06 Sharing Innova vehicle for Bumla Pass from Tawang",
-      "Insurance and laundry"
     ]
   },
   {

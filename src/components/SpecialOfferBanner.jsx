@@ -9,52 +9,57 @@ export default function SpecialOfferBanner({ onOpenEnquiry }) {
     <section id="about-us" className="offer-about-section">
       <div className="container">
         <div className="offer-about-grid">
-          {/* Left Special Offer Banner */}
-          <div className="discount-banner-card">
-            <span className="discount-ribbon-tag">(T&C*)</span>
-            
-            <div className="discount-heading-box">
-              <h2>SPECIAL DISCOUNT OFFER</h2>
-            </div>
-
-            <div className="offer-items-wrap">
-              <div className="offer-item-badge">
-                <span className="free-text">100% FREE</span>
-                <span className="free-text" style={{ fontSize: '13px', color: '#fff' }}>TICKET FOR</span>
-                <span className="target-text">Infant Child</span>
-                <span className="pkg-text">On All Flight Packages</span>
-              </div>
-
-              <div className="offer-item-badge">
-                <span className="free-text">100% FREE</span>
-                <span className="free-text" style={{ fontSize: '13px', color: '#fff' }}>TICKET FOR</span>
-                <span className="target-text">Upto 10 year Kids</span>
-                <span className="pkg-text">On All Train Packages</span>
-              </div>
-            </div>
-
-            <div style={{ marginTop: '20px', textAlign: 'center' }}>
-              <button 
-                className="btn-gold" 
-                style={{ width: '100%', fontSize: '15px', padding: '10px' }}
-                onClick={() => onOpenEnquiry("Special Discount Offer (Infant/Kids Free)")}
-              >
-                Claim This Offer Now <Sparkles size={16} style={{ marginLeft: '6px' }} />
-              </button>
+          {/* Left: Verified Pilgrim Group Photo Card */}
+          <div className="about-image-card" style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 12px 30px rgba(0,0,0,0.1)', border: '1px solid #e2e8f0' }}>
+            <img 
+              src="/images/radiant_pilgrim_tour_group.jpg" 
+              alt="Radiant Expeditions Group Yatra Pilgrims" 
+              style={{ width: '100%', minHeight: '340px', maxHeight: '420px', objectFit: 'cover', display: 'block' }}
+            />
+            <div style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              background: 'linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 65%, transparent 100%)',
+              padding: '24px 20px 18px',
+              color: '#ffffff'
+            }}>
+              <span style={{ display: 'inline-block', background: 'var(--color-primary)', color: '#fff', fontSize: '11.5px', fontWeight: '700', padding: '4px 10px', borderRadius: '20px', marginBottom: '8px' }}>
+                ✓ 15+ Years Trust (Since 2009)
+              </span>
+              <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', marginBottom: '4px' }}>
+                Real Group Pilgrimages with Care
+              </h3>
+              <p style={{ color: '#cbd5e1', fontSize: '13px', margin: 0, lineHeight: '1.5' }}>
+                Guiding 2,00,000+ satisfied devotees across the most sacred shrines of India &amp; Nepal.
+              </p>
             </div>
           </div>
 
-          {/* Right About Radiant Expeditions Content */}
+          {/* Right: About Radiant Expeditions Content */}
           <div className="about-subhayatra-content">
-            <h2>Radiant Expeditions</h2>
-            <p>
-              <strong>Radiant Expeditions</strong> is one of the leading <strong>Pilgrimage tour operator in Bangalore</strong> at affordable cost in tourism industry and it was incorporated in the year <strong>2009</strong> with the objective of setting high travel standards and facilitating attractive Tour packages for travelling to <strong>Shirdi, Nasik, Pandharpur, Panch Jyotirlinga, Kolhapur, Mahabaleshwar, Mumbai, Lonavala, Ajanta &amp; Ellora, Kashi, Gaya, Allahabad, Ayodhya, Naimisharanya, Rameshwaram, Hyderabad Srisailam, Udupi, Kollur Mookambika, Odisha Puri Jagannath, Gujarat Dwarka, Madhya Pradesh, Agra, Mathura, Jaipur, Kedarnath, Nepal, Haridwar &amp; Rishikesh Tours</strong>.
+            <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--color-primary)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              About Us
+            </span>
+            <h2 style={{ fontSize: '28px', color: 'var(--color-dark-navy)', marginTop: '4px', marginBottom: '12px' }}>
+              Radiant Expeditions
+            </h2>
+            <p style={{ color: '#475569', fontSize: '14.5px', lineHeight: '1.7', marginBottom: '14px' }}>
+              <strong>Radiant Expeditions</strong> is one of the leading <strong>Pilgrimage tour operators in Bangalore</strong> at affordable cost. Incorporated in the year <strong>2009</strong>, we facilitate attractive, well-organized tour packages to <strong>Shirdi, Kashi, Gaya, Ayodhya, Chardham, Puri Jagannath, Gujarat Dwarka &amp; Somnath, Rameshwaram, Tirupati, Northeast India, Nepal, and Bhutan</strong>.
             </p>
-            <p>
-              We are specialized in making Group and Customized tours to our privilege customers need and budgeted. We are organized more than 1000 group packages for <strong>Shirdi, Kashi & other pilgrimage</strong> places by around 200000+ satisfied devotees.
+            <p style={{ color: '#475569', fontSize: '14.5px', lineHeight: '1.7', marginBottom: '18px' }}>
+              We specialize in group and customized tours tailored to families and senior citizens, having successfully conducted more than 1,000 group packages for over 2,00,000+ satisfied devotees with dedicated pure vegetarian catering and VIP darshan arrangements.
             </p>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '12px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+              <button 
+                className="btn-primary"
+                onClick={() => onOpenEnquiry()}
+              >
+                Plan Your Pilgrimage
+              </button>
+
               <button 
                 className="read-more-btn"
                 onClick={() => setShowAboutModal(true)}
