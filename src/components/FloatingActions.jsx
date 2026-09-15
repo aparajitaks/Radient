@@ -31,7 +31,11 @@ export default function FloatingActions({ onOpenEnquiry }) {
           aria-label="Google Reviews"
           title="See our Google Reviews"
         >
-          <Star size={20} />
+          <img 
+            src="/images/google_transparent.png" 
+            alt="Google Reviews" 
+            style={{ width: '28px', height: '28px', objectFit: 'contain', display: 'block' }}
+          />
         </a>
         <a
           href="https://www.instagram.com/radianttravels82?igsi=NmZucWlmeGxueDhn"
@@ -64,7 +68,11 @@ export default function FloatingActions({ onOpenEnquiry }) {
         aria-label="Chat on WhatsApp"
         title="Chat on WhatsApp"
       >
-        <MessageCircle size={30} />
+        <img 
+          src="/images/whatsapp_transparent.png" 
+          alt="Chat on WhatsApp" 
+          style={{ width: '38px', height: '38px', objectFit: 'contain', display: 'block' }}
+        />
       </a>
 
       {/* Floating Side Enquiry Pill */}

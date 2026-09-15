@@ -1589,7 +1589,14 @@
 }
 
 .floating-google {
-  background: #4285f4;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+.floating-google:hover {
+  background: #f8fafc;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
 }
 
 .floating-instagram {

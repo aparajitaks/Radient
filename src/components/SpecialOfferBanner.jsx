@@ -1,39 +1,296 @@
-import React, { useState } from 'react';
-import { ArrowRight, Sparkles, CheckCircle2, X } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ArrowRight, Sparkles, CheckCircle2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { contactInfo } from '../data/packagesData';
+
+const aboutImages = [
+  {
+    src: '/images/about_group_1.jpg',
+    alt: 'Ayodhya & Kashi Holy Boat Darshan - Radiant Expeditions Pilgrims',
+    tag: 'Ayodhya & Kashi Ghats',
+    caption: 'Devotees during sacred holy river boat darshan'
+  },
+  {
+    src: '/images/about_group_2.jpg',
+    alt: 'Grand Temple Complex Group Darshan - Radiant Expeditions Pilgrims',
+    tag: 'Grand Temple Yatra',
+    caption: 'Devotees blessed with priority temple darshan'
+  },
+  {
+    src: '/images/about_group_3.jpg',
+    alt: 'Nepal Pashupatinath Temple Tour - Radiant Expeditions Pilgrims',
+    tag: 'Kathmandu, Nepal',
+    caption: 'Bangalore pilgrims at revered Pashupatinath shrine'
+  },
+  {
+    src: '/images/about_group_4.jpg',
+    alt: 'Mt. Everest Mountain Flight Tour - Radiant Expeditions Pilgrims',
+    tag: 'Himalayan Flight Group',
+    caption: 'Group holding Himalayan mountain flight certificates'
+  },
+  {
+    src: '/images/radiant_pilgrim_tour_group.jpg',
+    alt: 'Real Group Pilgrimages with Care - Radiant Expeditions',
+    tag: 'Group Pilgrimage',
+    caption: 'Organized group yatra with pure vegetarian catering'
+  }
+];
 
 export default function SpecialOfferBanner({ onOpenEnquiry }) {
   const [showAboutModal, setShowAboutModal] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef(null);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % aboutImages.length);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  const handlePrev = (e) => {
+    if (e) e.stopPropagation();
+    setCurrentSlide((prev) => (prev === 0 ? aboutImages.length - 1 : prev - 1));
+  };
+
+  const handleNext = (e) => {
+    if (e) e.stopPropagation();
+    setCurrentSlide((prev) => (prev + 1) % aboutImages.length);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (diff > 45) {
+      handleNext();
+    } else if (diff < -45) {
+      handlePrev();
+    }
+    touchStartX.current = null;
+  };
 
   return (
     <section id="about-us" className="offer-about-section">
       <div className="container">
         <div className="offer-about-grid">
-          {/* Left: Verified Pilgrim Group Photo Card */}
-          <div className="about-image-card" style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 12px 30px rgba(0,0,0,0.1)', border: '1px solid #e2e8f0' }}>
-            <img 
-              src="/images/radiant_pilgrim_tour_group.jpg" 
-              alt="Radiant Expeditions Group Yatra Pilgrims" 
-              style={{ width: '100%', minHeight: '340px', maxHeight: '420px', objectFit: 'cover', display: 'block' }}
-            />
+          {/* Left: Verified Pilgrim Group Photo Carousel */}
+          <div 
+            className="about-image-card"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            style={{ 
+              position: 'relative', 
+              borderRadius: '16px', 
+              overflow: 'hidden', 
+              boxShadow: '0 12px 30px rgba(0,0,0,0.12)', 
+              border: '1px solid #e2e8f0',
+              backgroundColor: '#0f172a'
+            }}
+          >
+            {/* Top Counter Badge */}
+            <div 
+              style={{
+                position: 'absolute',
+                top: '14px',
+                right: '14px',
+                zIndex: 4,
+                background: 'rgba(15, 23, 42, 0.75)',
+                backdropFilter: 'blur(6px)',
+                color: '#ffffff',
+                fontSize: '11.5px',
+                fontWeight: '600',
+                padding: '4px 10px',
+                borderRadius: '20px',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}
+            >
+              <span>📷 Real Groups</span>
+              <span style={{ opacity: 0.6 }}>•</span>
+              <span>{currentSlide + 1}/{aboutImages.length}</span>
+            </div>
+
+            {/* Horizontal Scroll / Slide Track */}
+            <div 
+              style={{
+                display: 'flex',
+                width: '100%',
+                transform: `translateX(-${currentSlide * 100}%)`,
+                transition: 'transform 0.65s cubic-bezier(0.25, 1, 0.5, 1)'
+              }}
+            >
+              {aboutImages.map((slide, index) => (
+                <div 
+                  key={index}
+                  style={{
+                    minWidth: '100%',
+                    position: 'relative'
+                  }}
+                >
+                  <img 
+                    src={slide.src} 
+                    alt={slide.alt} 
+                    style={{ 
+                      width: '100%', 
+                      minHeight: '350px', 
+                      maxHeight: '430px', 
+                      height: '100%',
+                      objectFit: 'cover', 
+                      display: 'block' 
+                    }}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              type="button"
+              onClick={handlePrev}
+              aria-label="Previous pilgrim photo"
+              style={{
+                position: 'absolute',
+                left: '12px',
+                top: '45%',
+                transform: 'translateY(-50%)',
+                zIndex: 4,
+                background: 'rgba(15, 23, 42, 0.6)',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
+                color: '#ffffff',
+                borderRadius: '50%',
+                width: '36px',
+                height: '36px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                backdropFilter: 'blur(4px)',
+                transition: 'background 0.2s ease',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(15, 23, 42, 0.85)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(15, 23, 42, 0.6)'}
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <button
+              type="button"
+              onClick={handleNext}
+              aria-label="Next pilgrim photo"
+              style={{
+                position: 'absolute',
+                right: '12px',
+                top: '45%',
+                transform: 'translateY(-50%)',
+                zIndex: 4,
+                background: 'rgba(15, 23, 42, 0.6)',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
+                color: '#ffffff',
+                borderRadius: '50%',
+                width: '36px',
+                height: '36px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                backdropFilter: 'blur(4px)',
+                transition: 'background 0.2s ease',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(15, 23, 42, 0.85)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(15, 23, 42, 0.6)'}
+            >
+              <ChevronRight size={20} />
+            </button>
+
+            {/* Bottom Gradient & Info Overlay */}
             <div style={{
               position: 'absolute',
               bottom: 0,
               left: 0,
               right: 0,
-              background: 'linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 65%, transparent 100%)',
-              padding: '24px 20px 18px',
-              color: '#ffffff'
+              background: 'linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.65) 60%, transparent 100%)',
+              padding: '28px 20px 16px',
+              color: '#ffffff',
+              zIndex: 3
             }}>
-              <span style={{ display: 'inline-block', background: 'var(--color-primary)', color: '#fff', fontSize: '11.5px', fontWeight: '700', padding: '4px 10px', borderRadius: '20px', marginBottom: '8px' }}>
-                ✓ 8+ Years Trust (Since 2018)
-              </span>
-              <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', marginBottom: '4px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '8px' }}>
+                <span style={{ 
+                  display: 'inline-block', 
+                  background: 'var(--color-primary)', 
+                  color: '#fff', 
+                  fontSize: '11px', 
+                  fontWeight: '700', 
+                  padding: '3px 10px', 
+                  borderRadius: '20px' 
+                }}>
+                  ✓ 8+ Years Trust (Since 2018)
+                </span>
+                <span style={{ 
+                  display: 'inline-block', 
+                  background: 'rgba(255, 255, 255, 0.2)', 
+                  color: '#f8fafc', 
+                  fontSize: '11px', 
+                  fontWeight: '600', 
+                  padding: '3px 10px', 
+                  borderRadius: '20px',
+                  backdropFilter: 'blur(4px)'
+                }}>
+                  📍 {aboutImages[currentSlide].tag}
+                </span>
+              </div>
+
+              <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', marginBottom: '3px' }}>
                 Real Group Pilgrimages with Care
               </h3>
-              <p style={{ color: '#cbd5e1', fontSize: '13px', margin: 0, lineHeight: '1.5' }}>
-                Guiding 2,00,000+ satisfied devotees across the most sacred shrines of India &amp; Nepal.
+              <p style={{ color: '#cbd5e1', fontSize: '13px', margin: 0, lineHeight: '1.4' }}>
+                {aboutImages[currentSlide].caption} • 2,00,000+ happy devotees.
               </p>
+
+              {/* Slide Indicator Dots */}
+              <div 
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  marginTop: '12px'
+                }}
+              >
+                {aboutImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentSlide(idx);
+                    }}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    style={{
+                      width: currentSlide === idx ? '22px' : '7px',
+                      height: '7px',
+                      borderRadius: '4px',
+                      backgroundColor: currentSlide === idx ? 'var(--color-primary, #0d9488)' : 'rgba(255, 255, 255, 0.4)',
+                      border: 'none',
+                      padding: 0,
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 

@@ -18,7 +18,8 @@ export default function GoogleReviews({ onOpenEnquiry }) {
         <div className="reviews-container-grid">
           {/* Left Google Rating Box */}
           <div className="google-rating-box">
-            <div className="google-logo-row">
+            <div className="google-logo-row" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <img src="/images/google_transparent.png" alt="Google" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
               <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
             </div>
             
