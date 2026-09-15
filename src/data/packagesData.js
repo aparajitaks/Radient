@@ -11,10 +11,10 @@ export const contactInfo = {
   address: "14th Main, 6th B Cross Rd, Arehalli, AGS Layout, Banashankari, Bengaluru, Karnataka 560085",
   timings: "Mon – Sun: 8:00 AM – 9:30 PM",
   googleMapsUrl: "https://share.google/sKJGscBnoFqiLYYus",
-  experienceYears: "15+",
+  experienceYears: "8+",
   happyPilgrims: "2,00,000+",
   groupPackages: "1,000+",
-  establishedYear: "2009",
+  establishedYear: "2018",
   googleRating: 4.8,
   googleReviewsCount: "39+"
 };
@@ -893,7 +893,7 @@ export const specialPackages = northIndianPackages;
 export const trustBadges = [
   { title: "Customized Packages", desc: "Tailored to your family size, budget & convenience" },
   { title: "Flight & Train Options", desc: "Direct flights from Bangalore with priority check-in" },
-  { title: "15+ Years Experience", desc: "Organizing successful spiritual yatras since 2009" },
+  { title: "8+ Years Experience", desc: "Organizing successful spiritual yatras since 2018" },
   { title: "2,00,000+ Happy Pilgrims", desc: "Thousands of senior citizens & families served" },
   { title: "24/7 Dedicated Support", desc: "On-ground tour coordinators & 24/7 helpline" },
   { title: "Best Price Guarantee", desc: "Complete transparency with zero hidden charges" }
@@ -1019,5 +1019,77 @@ export const galleryImages = [
     title: "Somnath Temple Evening Aarti",
     category: "Special",
     image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 7,
+    title: "Shirdi Group Departure – Bangalore Pilgrims",
+    category: "Shirdi",
+    image: "https://images.unsplash.com/photo-1609766857776-c0bb5a3fe658?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 8,
+    title: "Kashi Vishwanath Jyotirlinga Darshan",
+    category: "Kashi",
+    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 9,
+    title: "Ayodhya Ram Mandir – Grand Entry",
+    category: "Ayodhya",
+    image: "https://images.unsplash.com/photo-1664575599736-c5197c684b96?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 10,
+    title: "Puri Beach Sunrise – Group Tour",
+    category: "Puri",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 11,
+    title: "Chardham Yatra – Kedarnath Trek",
+    category: "Special",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 12,
+    title: "Rameshwaram – Agni Tirtham Holy Dip",
+    category: "Special",
+    image: "https://images.unsplash.com/photo-1572448862527-d3c904757de6?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 13,
+    title: "Shirdi Samadhi Mandir Prayers",
+    category: "Shirdi",
+    image: "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 14,
+    title: "Varanasi Boat Ride at Dawn",
+    category: "Kashi",
+    image: "https://images.unsplash.com/photo-1609920658906-8223bd289001?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 15,
+    title: "Tirupati Balaji Temple Darshan",
+    category: "Special",
+    image: "https://images.unsplash.com/photo-1604928141064-207cea6f571f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 16,
+    title: "Puri Jagannath Rath Yatra Celebration",
+    category: "Puri",
+    image: "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 17,
+    title: "Kedarnath Temple Snow View",
+    category: "Special",
+    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 18,
+    title: "Group Pilgrims at Ayodhya Ghats",
+    category: "Ayodhya",
+    image: "https://images.unsplash.com/photo-1601979031925-424e53b6caaa?auto=format&fit=crop&w=800&q=80"
   }
 ];

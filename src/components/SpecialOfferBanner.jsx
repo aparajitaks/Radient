@@ -26,7 +26,7 @@ export default function SpecialOfferBanner({ onOpenEnquiry }) {
               color: '#ffffff'
             }}>
               <span style={{ display: 'inline-block', background: 'var(--color-primary)', color: '#fff', fontSize: '11.5px', fontWeight: '700', padding: '4px 10px', borderRadius: '20px', marginBottom: '8px' }}>
-                ✓ 15+ Years Trust (Since 2009)
+                ✓ 8+ Years Trust (Since 2018)
               </span>
               <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', marginBottom: '4px' }}>
                 Real Group Pilgrimages with Care
@@ -46,7 +46,7 @@ export default function SpecialOfferBanner({ onOpenEnquiry }) {
               Radiant Expeditions
             </h2>
             <p style={{ color: '#475569', fontSize: '14.5px', lineHeight: '1.7', marginBottom: '14px' }}>
-              <strong>Radiant Expeditions</strong> is one of the leading <strong>Pilgrimage tour operators in Bangalore</strong> at affordable cost. Incorporated in the year <strong>2009</strong>, we facilitate attractive, well-organized tour packages to <strong>Shirdi, Kashi, Gaya, Ayodhya, Chardham, Puri Jagannath, Gujarat Dwarka &amp; Somnath, Rameshwaram, Tirupati, Northeast India, Nepal, and Bhutan</strong>.
+              <strong>Radiant Expeditions</strong> is one of the leading <strong>Pilgrimage tour operators in Bangalore</strong> at affordable cost. Incorporated in the year <strong>2018</strong>, we facilitate attractive, well-organized tour packages to <strong>Shirdi, Kashi, Gaya, Ayodhya, Chardham, Puri Jagannath, Gujarat Dwarka &amp; Somnath, Rameshwaram, Tirupati, Northeast India, Nepal, and Bhutan</strong>.
             </p>
             <p style={{ color: '#475569', fontSize: '14.5px', lineHeight: '1.7', marginBottom: '18px' }}>
               We specialize in group and customized tours tailored to families and senior citizens, having successfully conducted more than 1,000 group packages for over 2,00,000+ satisfied devotees with dedicated pure vegetarian catering and VIP darshan arrangements.
@@ -101,7 +101,7 @@ export default function SpecialOfferBanner({ onOpenEnquiry }) {
             
             <h2 style={{ color: 'var(--color-primary)', marginBottom: '14px' }}>About Radiant Expeditions</h2>
             <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.7', marginBottom: '16px' }}>
-              Established in 2009 in Bangalore, Radiant Expeditions has grown to become Karnataka's premier pilgrimage tour management company. Over the past 15+ years, we have guided over 2,00,000 devout pilgrims across the most revered temple shrines across India and Nepal.
+              Established in 2018 in Bangalore, Radiant Expeditions has grown to become Karnataka's premier pilgrimage tour management company. Over the past 8+ years, we have guided over 2,00,000 devout pilgrims across the most revered temple shrines across India and Nepal.
             </p>
 
             {/* Real group photo from Google Maps listing */}
