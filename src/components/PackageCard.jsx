@@ -6,7 +6,7 @@ export default function PackageCard({ pkg, onSelectPackage }) {
       <div className="card-img-wrap">
         <img
           src={pkg.image}
-          alt={pkg.title}
+          alt={`${pkg.title} (${pkg.duration}) tour package from Bangalore - Radiant Expeditions`}
           className="card-img"
           loading="lazy"
         />

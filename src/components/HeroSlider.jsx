@@ -21,7 +21,10 @@ export default function HeroSlider({ onOpenEnquiry, onSelectPackage }) {
   };
 
   return (
-    <section id="home" className="hero-slider-section">
+    <section id="home" className="hero-slider-section" aria-label="Featured Pilgrimage and Holiday Tour Packages">
+      <h1 className="sr-only">
+        Radiant Expeditions – Bangalore's Leading Pilgrimage &amp; Tour Operator
+      </h1>
       {heroSlides.map((slide, index) => (
         <div
           key={slide.id}
@@ -29,14 +32,14 @@ export default function HeroSlider({ onOpenEnquiry, onSelectPackage }) {
         >
           <img
             src={slide.image}
-            alt={slide.title}
+            alt={`${slide.title} - Tour package from Bangalore by Radiant Expeditions`}
             className="hero-bg-img"
             loading={index === 0 ? 'eager' : 'lazy'}
           />
           <div className="hero-overlay">
             <div className="hero-content">
               <span className="hero-badge">{slide.badge} • {slide.duration}</span>
-              <h1 className="hero-title">{slide.title}</h1>
+              <h2 className="hero-title">{slide.title}</h2>
               <div className="hero-price-tag">
                 Starts @ <span style={{ color: 'var(--color-accent)' }}>Rs.{slide.price}</span>
               </div>

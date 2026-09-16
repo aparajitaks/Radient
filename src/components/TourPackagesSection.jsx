@@ -83,7 +83,7 @@ export default function TourPackagesSection({
             </svg>
           </div>
           <div className="title">
-            <h2>Everything For Your Perfect Trip</h2>
+            <h2>Tour Packages from Bangalore – Pilgrimage &amp; Holidays</h2>
           </div>
         </div>
 

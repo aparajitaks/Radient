@@ -1,0 +1,21 @@
+{
+  "name": "Radiant Expeditions | Tours & Travels",
+  "short_name": "Radiant Expeditions",
+  "description": "Bangalore's Leading Pilgrimage & Holiday Tour Operator. Flight & Train packages to Shirdi, Kashi, Chardham, South & North India.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0B735F",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

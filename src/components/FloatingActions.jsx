@@ -1,5 +1,4 @@
 import React from 'react';
-import { MessageCircle, Send, Star } from 'lucide-react';
 import { contactInfo } from '../data/packagesData';
 
 const InstagramIcon = () => (

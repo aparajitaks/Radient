@@ -6,6 +6,8 @@ import Header from './components/Header';
 import HeroSlider from './components/HeroSlider';
 import SpecialOfferBanner from './components/SpecialOfferBanner';
 import TourPackagesSection from './components/TourPackagesSection';
+import GoogleReviews from './components/GoogleReviews';
+import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 
 import PackageModal from './components/PackageModal';
@@ -52,6 +54,12 @@ export default function App() {
           onSelectPackage={handleSelectPackage}
           initialCount={6}
         />
+
+        {/* 5. Client Reviews & Ratings (4.8 ★ on Google) */}
+        <GoogleReviews onOpenEnquiry={handleOpenEnquiry} />
+
+        {/* 6. Frequently Asked Questions */}
+        <FAQSection onOpenEnquiry={handleOpenEnquiry} />
       </main>
 
       {/* 5. Footer */}

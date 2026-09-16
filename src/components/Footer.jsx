@@ -122,6 +122,8 @@ export default function Footer({ onOpenEnquiry, onSelectPackageTab }) {
                   International
                 </a>
               </li>
+              <li><a href="#reviews">Google Reviews (4.8 ★)</a></li>
+              <li><a href="#faq">FAQs</a></li>
               <li><a href="#footer">Contact Us</a></li>
             </ul>
           </div>
